@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CV fictif — Quentin Legrand</title>
+  <style>
+    :root{
+      --bg1:#0f172a; /* deep indigo */
+      --bg2:#071032; /* deep navy */
+      --accent1:#06b6d4; /* cyan */
+      --accent2:#8b5cf6; /* violet */
+      --glass: rgba(255,255,255,0.06);
+      --card: rgba(255,255,255,0.04);
+      --text: #e6eef8;
+      --muted: #9fb0cc;
+      --success: #34d399;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background: radial-gradient(1200px 600px at 10% 10%, rgba(139,92,246,0.12), transparent), linear-gradient(180deg,var(--bg1),var(--bg2)); color:var(--text); -webkit-font-smoothing:antialiased}
+    .container{max-width:1100px;margin:40px auto;padding:28px;display:grid;grid-template-columns:320px 1fr;gap:28px}
+
+    /* LEFT CARD */
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:16px;padding:20px;backdrop-filter: blur(6px);box-shadow: 0 8px 30px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.04)}
+    .profile{display:flex;flex-direction:column;align-items:center;text-align:center}
+    .photo{width:180px;height:180px;border-radius:14px;overflow:hidden;border:4px solid rgba(255,255,255,0.06);background:linear-gradient(135deg,var(--accent1),var(--accent2));display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform .28s ease}
+    .photo img{width:100%;height:100%;object-fit:cover;display:block}
+    .photo:hover{transform:translateY(-6px) scale(1.02)}
+    h1{margin:14px 0 0;font-size:26px}
+    h2{margin:6px 0 0;font-size:14px;color:var(--muted);font-weight:600}
+    .meta{margin-top:10px;font-size:14px;color:var(--muted)}
+    .contact{margin-top:16px;width:100%}
+    .contact a{display:block;text-decoration:none;color:var(--text);padding:8px;border-radius:8px;transition:background .18s}
+    .contact a:hover{background:var(--glass)}
+
+    .section-title{display:flex;align-items:center;gap:10px;font-weight:700;margin:16px 0 8px}
+    .pill{background:linear-gradient(90deg,var(--accent1),var(--accent2));padding:6px 10px;border-radius:999px;font-size:12px;color:#041022}
+
+    /* SKILLS */
+    .skill{margin:10px 0}
+    .skill .bar{height:10px;background:rgba(255,255,255,0.03);border-radius:999px;overflow:hidden}
+    .skill .filled{height:100%;width:0%;background:linear-gradient(90deg,var(--accent1),var(--accent2));border-radius:999px;transition:width 1s cubic-bezier(.2,.9,.2,1)}
+
+    /* RIGHT CONTENT */
+    .hero{display:flex;align-items:center;justify-content:space-between}
+    .tagline{max-width:70%}
+    .tagline h3{margin:0;font-size:20px}
+    .tagline p{margin:6px 0 0;color:var(--muted)}
+
+    .about{margin-top:12px;color:var(--muted);line-height:1.45}
+
+    .timeline{margin-top:10px;border-left:2px solid rgba(255,255,255,0.04);padding-left:18px}
+    .event{position:relative;margin:18px 0;padding-left:18px}
+    .event:before{content:'';position:absolute;left:-11px;top:6px;width:14px;height:14px;border-radius:50%;background:linear-gradient(90deg,var(--accent1),var(--accent2));box-shadow:0 4px 12px rgba(11,22,40,0.6)}
+    .event h4{margin:0;font-size:16px}
+    .event .meta{font-size:13px}
+    .cta{margin-top:18px;display:flex;gap:12px}
+    .btn{padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,var(--accent1),var(--accent2));border:none;color:#041022;font-weight:700;cursor:pointer;box-shadow:0 6px 20px rgba(11,22,40,0.6);transition:transform .18s}
+    .btn:hover{transform:translateY(-4px)}
+
+    /* FOOTER */
+    footer{margin-top:22px;color:var(--muted);font-size:13px;text-align:center}
+
+    /* Hover micro-interactions */
+    .company{display:inline-block;position:relative}
+    .company:hover::after{content:attr(data-tip);position:absolute;left:0;top:130%;background:rgba(3,7,18,0.96);padding:8px;border-radius:8px;color:var(--text);white-space:nowrap;font-size:13px}
+
+    /* Responsive */
+    @media (max-width:920px){.container{grid-template-columns:1fr;padding:18px}.photo{width:140px;height:140px}}
+
+    /* Watermark big: FICTIF */
+    .watermark{position:fixed;right:6px;bottom:6px;opacity:0.06;font-size:100px;font-weight:900;transform:rotate(-20deg);pointer-events:none;color:#fff}
+
+  </style>
+</head>
+<body>
+  <div class="watermark">FICTIF</div>
+  <div class="container">
+    <aside class="card">
+      <div class="profile">
+        <div class="photo" title="Cliquez pour remplacer la photo">
+          <!-- Remplacez src par votre photo locale -->
+          <img src="https://via.placeholder.com/400x400.png?text=Photo" alt="Photo Quentin Legrand" />
+        </div>
+        <h1>Quentin Legrand</h1>
+        <h2>Expert Principal — Cyber Sécurité</h2>
+        <div class="meta">Âge : 26 &nbsp;•&nbsp; Nationalité : Française</div>
+
+        <div class="contact">
+          <a href="mailto:quentin.legrand.example@mail.com">quentin.legrand.example@mail.com</a>
+          <a href="tel:+33612345678">+33 6 12 34 56 78</a>
+          <a>Paris, France (disponible pour missions internationales)</a>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title"><span class="pill">Langues</span></div>
+        <ul style="list-style:none;padding:0;margin:8px 0 0;color:var(--muted)">
+          <li>Français — Langue maternelle</li>
+          <li>Anglais — Niveau natif / C2</li>
+          <li>Espagnol — Niveau avancé / C1-C2</li>
+          <li>Slovaque — Niveau avancé / C1</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <div class="section-title"><span class="pill">Compétences clés</span></div>
+        <div class="skill"><div style="display:flex;justify-content:space-between;font-size:13px"><span>Pénétration & Red Team</span><strong>98%</strong></div><div class="bar"><div class="filled" style="width:98%"></div></div></div>
+        <div class="skill"><div style="display:flex;justify-content:space-between;font-size:13px"><span>Défense & Blue Team</span><strong>96%</strong></div><div class="bar"><div class="filled" style="width:96%"></div></div></div>
+        <div class="skill"><div style="display:flex;justify-content:space-between;font-size:13px"><span>Forensics & Incident Response</span><strong>94%</strong></div><div class="bar"><div class="filled" style="width:94%"></div></div></div>
+        <div class="skill"><div style="display:flex;justify-content:space-between;font-size:13px"><span>Cloud Security (AWS/Azure/GCP)</span><strong>92%</strong></div><div class="bar"><div class="filled" style="width:92%"></div></div></div>
+        <div class="skill"><div style="display:flex;justify-content:space-between;font-size:13px"><span>Cryptographie & Protocoles</span><strong>90%</strong></div><div class="bar"><div class="filled" style="width:90%"></div></div></div>
+      </div>
+
+      <div style="margin-top:12px">
+        <div class="section-title"><span class="pill">Certifications</span></div>
+        <ul style="list-style:none;padding:0;margin:8px 0 0;color:var(--muted)">
+          <li>OSCP — Offensive Security Certified Professional</li>
+          <li>CCIE (Sécurité — niveau avancé) — (certification interne, exercice fictif)</li>
+          <li>CISSP — Certified Information Systems Security Professional</li>
+          <li>Cloud Security Expert (GCP/AWS/Azure)</li>
+        </ul>
+      </div>
+
+      <div style="margin-top:14px;text-align:center;color:var(--muted);font-size:13px">
+        <em>Document fictif — usage pédagogique / portfolio. Ne pas utiliser comme CV réel pour candidatures.</em>
+      </div>
+    </aside>
+
+    <main>
+      <div class="card">
+        <div class="hero">
+          <div class="tagline">
+            <h3>Ingénieur en sécurité informatique — Leader d'équipes d'intervention stratégique</h3>
+            <p class="meta">Spécialiste en offensive et défense, j'interviens sur des missions sensibles, audits critiques et améliorations de résilience cyber. J'accompagne gouvernements et grands groupes sous accords de confidentialité.</p>
+          </div>
+          <div style="text-align:right;">
+            <div class="pill">Disponible</div>
+          </div>
+        </div>
+
+        <div class="about">
+          <p>Résumé : Expert en cybersécurité avec un profil orienté exploitation (Red Team) et réponse aux incidents à très haute échelle. Fort d'expériences internationales (missions sous NDA, coopération avec agences nationales et structures européennes), j'ai dirigé des interventions ayant neutralisé des campagnes avancées et restauré des infrastructures critiques. Ce CV est un exemple fictif conçu comme exercice.</p>
+        </div>
+
+        <div class="section-title" style="margin-top:18px"><span class="pill">Expériences remarquables</span></div>
+        <div class="timeline">
+          <div class="event">
+            <h4>Lead Cyber Operations — European Cyber Resilience Taskforce (fictif)</h4>
+            <div class="meta">2019 — 2022 • Mission continentale</div>
+            <p>Direction d'une équipe de 24 experts pour contrer une campagne d'espionnage ciblée contre des infrastructures critiques. Coordination inter-étatique, développement de contre-mesures sur-mesure et restitution de services stratégiques en 72 heures sous haute pression.</p>
+          </div>
+
+          <div class="event">
+            <h4>Principal Security Consultant — Confidential (Grand Compte sous NDA)</h4>
+            <div class="meta">2017 — 2019</div>
+            <p>Audit de sécurité à l'échelle mondiale, simulation d'attaques ciblées, remédiation et formation de centre opérationnel. Résultats : réduction de surface d'attaque de 84% en 6 mois.</p>
+          </div>
+
+          <div class="event">
+            <h4>Red Team Commander — Guardia Cyber Security School (projet avancé)</h4>
+            <div class="meta">2016 — 2018</div>
+            <p>Conception d'exercices réalistes pour former la prochaine génération d'experts. Création d'environnements d'entraînement cloud, GSOC et simulations d'incidents complexes.</p>
+          </div>
+
+          <div class="event">
+            <h4>Interventions européennes — Assistance stratégique</h4>
+            <div class="meta">2014 — 2016</div>
+            <p>Participation à des opérations conjointes entre États pour identifier et neutraliser des réseaux sophistiqués. Remarqué pour une mission ayant protégé un ensemble d'institutions financières face à une vulnérabilité zero-day critique.</p>
+          </div>
+        </div>
+
+        <div class="section-title" style="margin-top:18px"><span class="pill">Formation</span></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:6px">
+          <div style="background:var(--card);padding:12px;border-radius:10px">
+            <h4 style="margin:0 0 6px">Guardia Cyber Security School</h4>
+            <div class="meta">Bachelor — 2013 — 2016</div>
+          </div>
+          <div style="background:var(--card);padding:12px;border-radius:10px">
+            <h4 style="margin:0 0 6px">Guardia Cyber Security School</h4>
+            <div class="meta">Master — 2016 — 2018</div>
+          </div>
+        </div>
+
+        <div style="margin-top:12px">
+          <div class="section-title"><span class="pill">Études secondaires</span></div>
+          <div style="margin-top:6px;color:var(--muted)">
+            Lycée Jules Richard — 2010 — 2013<br>
+            Baccalauréat STI2D — 2013
+          </div>
+        </div>
+
+        <div class="section-title" style="margin-top:18px"><span class="pill">Projets & Contributions</span></div>
+        <ul style="color:var(--muted);">
+          <li><strong>Résilience nationale :</strong> Déploiement d'architecture de confinement lors d'attaques ciblées (exercice fictif sous mandat gouvernemental).</li>
+          <li><strong>Red Team vs Blue Team :</strong> Organisation de campagnes de simulation multi-niveaux impliquant environnements cloud, OT et IoT.</li>
+          <li><strong>Publications :</strong> Articles techniques sur la réduction de la surface d'attaque et la cryptographie appliquée (exemples fictifs pour portfolio).</li>
+        </ul>
+
+        <div class="section-title" style="margin-top:18px"><span class="pill">Récompenses & Reconnaissances</span></div>
+        <p style="color:var(--muted)">Récompensé lors d'exercices internationaux pour leadership en gestion de crise (entrée fictive pour exercice).</p>
+
+        <div class="cta">
+          <button class="btn" onclick="downloadHTML()">Télécharger (HTML)</button>
+          <button class="btn" onclick="print()">Imprimer</button>
+        </div>
+
+        <footer>CV fictif généré — Quentin Legrand — Exercice pédagogique</footer>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // micro interactions: animate skill bars when in view
+    function animateSkills(){
+      document.querySelectorAll('.skill .filled').forEach(function(el){
+        var w = el.style.width || '80%';
+        el.style.width = '0%';
+        setTimeout(function(){ el.style.width = w; }, 120);
+      });
+    }
+    window.addEventListener('load', animateSkills);
+
+    // Simple download of the current HTML as a file
+    function downloadHTML(){
+      var blob = new Blob([document.documentElement.outerHTML], {type: 'text/html'});
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url; a.download = 'CV_Quentin_Legrand_fictif.html';
+      document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+    }
+  </script>
+</body>
+</html>
